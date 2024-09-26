@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "LeetCode Difficulty Hider",
+  "version": "1.0.0",
+  "description": "This is a simple Chrome extension that gives a input box so to hide the difficulty of LeetCode questions.",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["tabs", "scripting", "activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "icons": {
+    "32": "icon32.png"
+  }
+}
